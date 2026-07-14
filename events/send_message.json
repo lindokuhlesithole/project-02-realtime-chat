@@ -1,0 +1,8 @@
+{
+  "action": "sendMessage",
+  "conversationId": "conv-123",
+  "senderId": "user-1",
+  "recipientId": "user-2",
+  "content": "Hello!",
+  "clientMessageId": "client-456"
+}

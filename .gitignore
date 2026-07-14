@@ -1,0 +1,10 @@
+﻿# Terraform
+.terraform/
+terraform/providers/
+*.exe
+*.zip
+*.tar.gz
+build/
+node_modules/
+.DS_Store
+Thumbs.db
