@@ -1,19 +1,5 @@
 <h1 align="center">Real-Time Chat Backend with WebSockets & DynamoDB Streams</h1>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform" />
-  <img src="https://img.shields.io/badge/API%20Gateway-WebSocket-FF4F8B?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="API Gateway WebSocket" />
-  <img src="https://img.shields.io/badge/AWS-Lambda-FF9900?style=for-the-badge&logo=aws-lambda&logoColor=white" alt="Lambda" />
-  <img src="https://img.shields.io/badge/DynamoDB-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="DynamoDB" />
-  <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/AWS%20Solutions%20Architect-Professional-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS SA Pro" />
-  <img src="https://img.shields.io/badge/AWS%20Security-Specialty-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=FF9900" alt="AWS Security" />
-</p>
-
----
 
 ## Table of Contents
 
@@ -49,21 +35,8 @@ I built a real-time chat backend using WebSocket APIs on AWS. The system handles
 
 ## Architecture
 
-```
-Client (Browser / wscat)
-    |
-    | wss://ejivkprw06.execute-api.us-east-1.amazonaws.com/prod
-    v
-API Gateway (WebSocket API)
-    |
-    |-- $connect ----> chat-connect Lambda ----> Store connection in DynamoDB
-    |-- sendMessage -> chat-send-message Lambda -> Save message -> Broadcast
-    |-- typing -----> chat-typing Lambda ------> Show "typing..." indicator
-    |-- $disconnect -> chat-disconnect Lambda -> Remove connection from DynamoDB
-    |
-    v DynamoDB Streams
-    chat-notification-processor Lambda -> Log offline messages
-```
+<img width="1058" height="882" alt="image" src="https://github.com/user-attachments/assets/bda68465-d73a-435c-8ecb-a195672f96ea" />
+
 
 **WebSocket vs REST:** This is the key difference. REST APIs are stateless — each request is independent. WebSocket APIs maintain a persistent connection. When a client connects, API Gateway assigns a `connectionId`. All subsequent messages use that same connection. This is what enables real-time bidirectional communication.
 
